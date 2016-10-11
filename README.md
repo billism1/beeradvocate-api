@@ -73,7 +73,7 @@ ba.beerPage("/beer/profile/16333/54413/", function(beer) {
 });
 ```
 
-Output
+Output (partially working)
 
 ```json
 [
@@ -98,6 +98,6 @@ Output
 
 ## Acknowledgements
 
-Beeradvocate API is not associated with beeradvocate.com. Their website is a great resource for all of us, to show thanks you should [subscribe to their awesome magazine](https://www.beeradvocate.com/mag/subscribe/).
+Beeradvocate API is not associated with beeradvocate.com. Their website is a great resource for all of us, to show thanks you should [subscribe to their awesome magazine](https://www.beeradvocate.com/mag/subscribe/).
 
 **Beeradvocate API** was originally forked from [Beer Advocate API](https://github.com/parryc/beer-advocate-api) by [Charlie Hield](https://github.com/stursby).
