@@ -50,7 +50,7 @@ exports.beerSearch = function(query, callback) {
 
             });
 
-            callback(beers);
+            callback(JSON.stringify(beers));
 
         }
 
@@ -123,7 +123,7 @@ exports.beerPage = function(url, callback) {
             // Add to beer array
             beer.push(data);
 
-            callback(beer);
+            callback(JSON.stringify(beer));
 
         }
 
