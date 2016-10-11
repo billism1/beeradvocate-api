@@ -13,7 +13,7 @@ exports.beerSearch = function(query, callback) {
 
             var beers = [];
 
-            $('#baContent ul li').each(function(beer) {
+            $('#ba-content ul li').each(function(beer) {
 
                 // One beer listing
                 var li = $(this);
@@ -44,7 +44,7 @@ exports.beerSearch = function(query, callback) {
                     brewery_url: brewery_url,
                     retired: retired
                 };
-                
+
                 // Add to beer array
                 beers.push(data);
 
