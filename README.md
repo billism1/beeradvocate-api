@@ -1,78 +1,103 @@
-# Beer Advocate API
+# Beeradvocate API
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/stursby/beer-advocate-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Unofficial JavaScript library for working with Beer Advocate data. This was originally forked from the unmaintained [Beer Advocate API](https://github.com/parryc/beer-advocate-api) JavaScript library by Charlie Hield.
 
-Unofficial library for working with Beer Advocate data.
+### Getting started
 
-## Installation
-
-#### via [NPM](http://npmjs.org)
+Beeradvocate API can be installed via [NPM](https://www.npmjs.org/). Make sure you’re in your projects directory, and run the following:
 
 ```bash
-$ npm install beer-advocate-api --save-dev
+$ npm install beeradvocate-api
 ```
 
-## Example
+### Including the library
+
+Next, make sure to include Beeradvocate API in your project.
 
 ```javascript
-var ba = require('beer-advocate-api');
+var ba = require('beeradvocate-api');
+```
 
-// Search for a beer
-// http://beeradvocate.com/search/?q=Anchor+Steam&qt=beer
-ba.beerSearch("Anchor Steam", function(beers) {
+## Documentation
 
+### Beers
+
+#### Search
+
+Search for a beer
+
+```javascript
+ba.beerSearch("Buffalo Sweat", function(beers) {
     console.log(beers);
-
-});
-
-// Get a specific beer page
-// http://beeradvocate.com/beer/profile/29223/84343/
-ba.beerPage("/beer/profile/29223/84343/", function(beer) {
-
-    console.log(beer);
-
 });
 ```
-## Output
+
+Output
+
+```json
+[
+  {
+    "beer_name": "Tallgrass Buffalo Sweat",
+    "beer_url": "\/beer\/profile\/16333\/54413\/",
+    "brewery_name": "Tallgrass Brewing Company",
+    "brewery_location": "Manhattan, Kansas",
+    "brewery_url": "\/beer\/profile\/16333\/",
+    "retired": false
+  },
+  {
+    "beer_name": "Tallgrass Vanilla Bean Buffalo Sweat",
+    "beer_url": "\/beer\/profile\/16333\/88933\/",
+    "brewery_name": "Tallgrass Brewing Company",
+    "brewery_location": "Manhattan, Kansas",
+    "brewery_url": "\/beer\/profile\/16333\/",
+    "retired": false
+  },
+  {
+    "beer_name": "Bourbon Barrel Buffalo Sweat",
+    "beer_url": "\/beer\/profile\/16333\/179467\/",
+    "brewery_name": "Tallgrass Brewing Company",
+    "brewery_location": "Manhattan, Kansas",
+    "brewery_url": "\/beer\/profile\/16333\/",
+    "retired": false
+  }
+]
+```
+
+### Beer page
+
+Get a specific beer page
 
 ```javascript
-// Search for a beer
-[ { beer_name: 'Anchor Steam Beer',
-    beer_url: '/beer/profile/28/63/',
-    brewery_name: 'Anchor Brewing Company',
-    brewery_location: 'San Francisco, California',
-    brewery_url: '/beer/profile/28/',
-    retired: false },
-  { beer_name: 'Drop Anchor Steam Beer',
-    beer_url: '/beer/profile/952/9899/',
-    brewery_name: 'Great Dane Pub & Brewing Company (Downtown)',
-    brewery_location: 'Madison, Wisconsin',
-    brewery_url: '/beer/profile/952/',
-    retired: true } ]
-
-// Get a specific beer page
-[ { beer_name: 'Day Tripper',
-    beer_style: 'American Pale Ale (APA)',
-    beer_abv: '5.40%',
-    brewery_name: 'Indeed Brewing Company',
-    brewery_state: 'Minnesota',
-    brewery_country: 'United States',
-    ba_score: '90',
-    ba_rating: 'outstanding',
-    bros_score: 'N/A',
-    bros_rating: '',
-    ratings: '264',
-    reviews: '65',
-    rAvg: '4.04',
-    pDev: '10.4%' } ]
+ba.beerPage("/beer/profile/16333/54413/", function(beer) {
+    console.log(beer);
+});
 ```
 
+Output
 
+```json
+[
+  {
+    "beer_name": "Tallgrass Buffalo Sweat",
+    "beer_style": "",
+    "beer_abv": "%",
+    "brewery_name": "Tallgrass Brewing Company",
+    "brewery_state": "",
+    "brewery_country": "",
+    "ba_score": "86",
+    "ba_rating": "very good",
+    "bros_score": "91",
+    "bros_rating": "outstanding",
+    "ratings": "",
+    "reviews": "",
+    "avg": "",
+    "pDev": ""
+  }
+]
+```
 
-## License
+## Acknowledgements
 
-Beer Advocate API is licensed [MIT](http://opensource.org/licenses/MIT)
+Beeradvocate API is not associated with beeradvocate.com. Their website is a great resource for all of us, to show thanks you should [subscribe to their awesome magazine](https://www.beeradvocate.com/mag/subscribe/).
 
-* * *
-
-Copyright (c) 2014 Charlie Hield
+**Beeradvocate API** was originally forked from [Beer Advocate API](https://github.com/parryc/beer-advocate-api) by [Charlie Hield](https://github.com/stursby).

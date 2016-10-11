@@ -71,16 +71,16 @@ exports.beerPage = function(url, callback) {
             var beer = [];
 
             // Beer & brewery name
-            var title = $('h1').text().split(/\s-\s/),
+            var title = $('h1').text().split(" | "),
                 beer_name = title[0],
                 brewery_name = title[1];
 
             // ABV
-            var beer_abv_chunk = $('#baContent table').eq(1).find('td').text().split(/%\sABV/)[0],
+            var beer_abv_chunk = $('#ba-content table').eq(1).find('td').text().split(/%\sABV/)[0],
                 beer_abv = beer_abv_chunk.substr(beer_abv_chunk.length - 6).trimLeft() + "%";
 
             // Brewery details
-            var links = $('#baContent table').find('form').parent().find('a'),
+            var links = $('#ba-content table').find('form').parent().find('a'),
                 brewery_state = links.eq(2).text(),
                 brewery_country = links.eq(3).text(),
                 beer_style = links.eq(4).text();
@@ -95,11 +95,11 @@ exports.beerPage = function(url, callback) {
                 bros_rating = bros_info.next().next().text();
 
             // More stats
-            var stats = $('#baContent table').eq(2).find('td:last-child').text().split(/:\s/),
-                ratings = stats[1].replace("Reviews",""),
-                reviews = stats[2].replace("rAvg",""),
-                rAvg = stats[3].replace("\npDev",""),
-                pDev = stats[4].replace("\n\nRatings Help\n","");
+            var stats = $('#item-stats dl').eq(2),
+                reviews = stats.find('.ba-reviews').text(),
+                ratings = stats.find('.ba-ratings').text(),
+                avg = stats.find('.ba-ravg').text(),
+                pDev = stats.find('.ba-pdev').text();
 
 
             // Data to return
@@ -116,7 +116,7 @@ exports.beerPage = function(url, callback) {
                 bros_rating: bros_rating,
                 ratings: ratings,
                 reviews: reviews,
-                rAvg: rAvg,
+                avg: avg,
                 pDev: pDev
             };
 

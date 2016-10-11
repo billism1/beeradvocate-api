@@ -1,5 +1,5 @@
 {
-  "name": "beer-advocate-api",
+  "name": "beeradvocate-api",
   "version": "0.0.1",
   "description": "Unofficial library for working with Beer Advocate data.",
   "main": "index.js",
@@ -7,15 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "beeradvocate",
     "beer advocate",
     "beer",
     "api"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stursby/beer-advocate-api.git"
+    "url": "https://github.com/brycejohnston/beeradvocate-api.git"
   },
-  "author": "Charlie Hield",
+  "author": "Bryce Johnston",
   "license": "MIT",
   "dependencies": {
     "cheerio": "~0.13.0",
