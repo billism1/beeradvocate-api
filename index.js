@@ -82,8 +82,11 @@ exports.beerPage = function(url, callback) {
             // Brewery details
             var links = $('#ba-content table').find('form').parent().find('a'),
                 brewery_state = links.eq(2).text(),
-                brewery_country = links.eq(3).text(),
-                beer_style = links.eq(4).text();
+                brewery_country = links.eq(3).text();
+                // beer_style = links.eq(4).text();
+
+            var beerStyleSelection = $('#ba-content > div:nth-child(4) > div:nth-child(2) > a:nth-child(16) > b');
+            var beer_style = beerStyleSelection.text();
 
             // Beer Advocate scores
             var ba_info = $('.BAscore_big').eq(0),
