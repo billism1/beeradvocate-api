@@ -73,25 +73,25 @@ ba.beerPage("/beer/profile/16333/54413/", function(beer) {
 });
 ```
 
-Output (partially working)
+Output
 
 ```json
 [
   {
-    "beer_name": "Tallgrass Buffalo Sweat",
-    "beer_style": "",
-    "beer_abv": "%",
-    "brewery_name": "Tallgrass Brewing Company",
-    "brewery_state": "",
-    "brewery_country": "",
-    "ba_score": "86",
-    "ba_rating": "very good",
-    "bros_score": "91",
-    "bros_rating": "outstanding",
-    "ratings": "",
-    "reviews": "",
-    "avg": "",
-    "pDev": ""
+    "beer_name":"Tallgrass Buffalo Sweat",
+    "beer_style":"Milk / Sweet Stout",
+    "beer_abv":"5.00%",
+    "brewery_name":"Tallgrass Brewing Company",
+    "brewery_state":"Kansas",
+    "brewery_country":"United States",
+    "ba_score":"86",
+    "ba_rating":"very good",
+    "bros_score":"91",
+    "bros_rating":"outstanding",
+    "ratings":"1,389",
+    "reviews":"366",
+    "avg":"3.83",
+    "pDev":"11.49%"
   }
 ]
 ```
