@@ -76,13 +76,14 @@ exports.beerPage = function(url, callback) {
                 brewery_name = title[1];
 
             // ABV
-            var beer_abv_chunk = $('#ba-content table').eq(1).find('td').text().split(/%\sABV/)[0],
-                beer_abv = beer_abv_chunk.substr(beer_abv_chunk.length - 6).trimLeft() + "%";
+            var beer_abv_chunk = $('#ba-content > div:nth-child(4) > div:nth-child(2)').text(),
+                beer_abv_start = $('#ba-content > div:nth-child(4) > div:nth-child(2)').text().indexOf("(ABV)"),
+                beer_abv_end = $('#ba-content > div:nth-child(4) > div:nth-child(2)').text().indexOf("%"),
+                beer_abv = beer_abv_chunk.substring(beer_abv_start+"(ABV): ".length, beer_abv_end+1);
 
             // Brewery details
-            var links = $('#ba-content table').find('form').parent().find('a'),
-                brewery_state = links.eq(2).text(),
-                brewery_country = links.eq(3).text();
+            var brewery_state = $('#ba-content > div:nth-child(4) > div:nth-child(2) > a:nth-child(9)').text(),
+                brewery_country = $('#ba-content > div:nth-child(4) > div:nth-child(2) > a:nth-child(10)').text();
                 // beer_style = links.eq(4).text();
 
             var beerStyleSelection = $('#ba-content > div:nth-child(4) > div:nth-child(2) > a:nth-child(16) > b');
@@ -98,11 +99,16 @@ exports.beerPage = function(url, callback) {
                 bros_rating = bros_info.next().next().text();
 
             // More stats
-            var stats = $('#item-stats dl').eq(2),
-                reviews = stats.find('.ba-reviews').text(),
-                ratings = stats.find('.ba-ratings').text(),
-                avg = stats.find('.ba-ravg').text(),
-                pDev = stats.find('.ba-pdev').text();
+            var stats = $('#ba-content > div:nth-child(4) > div:nth-child(3)').text(),
+                ratings_index = stats.indexOf("Ratings:"),
+                reviews_index = stats.indexOf("Reviews:"),
+                avg_index = stats.indexOf("Avg:"),
+                pdev_index = stats.indexOf("pDev:"),
+                wants_index = stats.indexOf("Wants:"),
+                ratings = stats.substring(ratings_index+"Ratings:".length, reviews_index).trim().replace(/\s/g, '').replace(":", ": "),
+                reviews = stats.substring(reviews_index+"Reviews:".length, avg_index).trim().replace(/\s/g, '').replace(":", ": "),
+                avg = stats.substring(avg_index+"Avg:".length, pdev_index).trim().replace(/\s/g, '').replace(":", ": "),
+                pDev = stats.substring(pdev_index+"pDev:".length, wants_index).trim().replace(/\s/g, '').replace(":", ": ");
 
 
             // Data to return
